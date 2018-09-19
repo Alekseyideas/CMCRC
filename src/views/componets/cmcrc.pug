@@ -1,11 +1,16 @@
 section.cmcrc
-  div.cmcrc__wrapper
-    include svgCircle
+  #scene
+    div.cmcrc__stars#satrs-1(data-depth="0.2")
+    div.cmcrc__stars#satrs-2(data-depth="0.6")
+    div.cmcrc__stars#satrs-3(data-depth="0.7")
+  .cmcrc__wrapper
+    .cmcrc__svgWrapper
+      include svgCircle
     .cmcrc__rightBlock
       .cmcrc__logo
         +image( 'cmcrc', 'logo.png' )
       .cmcrc__title
-        h1 CMCMRC
+        h1 CMCRC
       .cmcrc__image
         +image( 'cmcrc', 'photo.jpg' )
 
@@ -13,15 +18,15 @@ section.cmcrc
         .cmcrc__slider-item
           span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
         .cmcrc__slider-item
-          span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
+          span Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         .cmcrc__slider-item
-          span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
+          span Aliquam dolorum ducimus eum exercitationem explicabo nihil quam repellat sit veritatis vero..
         .cmcrc__slider-item
-          span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
+          span umque distinctio iure necessitatibus numquam provident totam veritatis.
         .cmcrc__slider-item
-          span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
+          span eum exercitationem explicabo nihil quam repellat sit veritatis vero
         .cmcrc__slider-item
-          span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
+          span Consectetur consequuntur cumque distinctio iure necessitatibus numquam provident totam veritatisient
         .cmcrc__slider-item
           span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
         .cmcrc__slider-item
@@ -31,4 +36,4 @@ section.cmcrc
         .cmcrc__slider-item
           span Collaborative research institute established in 2001 to make Caapitan Markets fairer and more efficient
 
-
+      a(href='#').cmcrc__btn DISCOVER THE CMCRC DIFFERENCE

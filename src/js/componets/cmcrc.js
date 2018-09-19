@@ -7,8 +7,13 @@ export const Cmсrc = () => {
       this.dots = document.querySelectorAll('.custom-crc');
       this.defColor = '#E5E5E5';
       this.activeClass = 'active';
-      this.idPrefix = 'crc-';
+      this.circle = document.querySelector('#cmcrc-vg');
+      this.idPrefix = {
+        dot: 'crc-',
+        line: 'line-'
+      };
       this.title = document.querySelector('.cmcrc__title');
+      this.lines = document.querySelectorAll('.main-line');
     }
 
     addLines() {
@@ -22,25 +27,35 @@ export const Cmсrc = () => {
         vertical: true,
         arrows: false,
         slidesToShow: 4,
-        autoplay: true
+        autoplay: false
       });
+
+      const idPrefix = this.idPrefix;
+      window.addEventListener( 'load', () => {
+        this.circle.classList.add('zoomIn');
+        setTimeout( () => {
+
+          this.wrapper.slick('slickPlay');
+          const line = document.getElementById( this.idPrefix.line + 1 );
+          const dot =  document.getElementById( this.idPrefix.dot + 1 );
+
+          dot.classList.add(this.activeClass);
+          dot.style = null;
+          line.style.opacity = 1;
+        },1500)
+      })
     }
 
     fnClickDot() {
+      const wrapper = this.wrapper;
       this.dots.forEach( dot => {
-        dot.style.fill = this.defColor;
         dot.addEventListener( 'click', function () {
           const curId = this.id.slice(4);
-          this.wrapper.slick('slickGoTo',curId);
-          this.dots.forEach(dot => {
-            dot.style.fill = this.defColor;
-            dot.classList.remove(this.activeClass)
-          });
-          this.classList.add(this.activeClass);
-          this.style = null;
+          wrapper.slick('slickGoTo',curId-1);
         });
       });
     }
+
 
     fnSliderChanged() {
       this.wrapper.on('afterChange', (event, slick, currentSlide, nextSlide) => {
@@ -49,10 +64,16 @@ export const Cmсrc = () => {
           dot.classList.remove(this.activeClass)
         });
 
-        const dot =  document.getElementById( this.idPrefix + ( currentSlide+1 ) );
+        this.lines.forEach( line => line.style.opacity = 0);
+
+
+        const line = document.getElementById( this.idPrefix.line + ( currentSlide+1 ) );
+
+        const dot =  document.getElementById( this.idPrefix.dot + ( currentSlide+1 ) );
 
         dot.classList.add(this.activeClass);
         dot.style = null;
+        line.style.opacity = 1;
 
       });
     }
@@ -60,10 +81,7 @@ export const Cmсrc = () => {
     init() {
 
       this.dots.forEach( ( dot, i) => {
-        const color = window.getComputedStyle(dot).getPropertyValue('fill');
-        this.title.innerHTML += `<div class="line" 
-                                      id="line-${i+1}"
-                                      style='background: ${color}'></div>`
+        dot.style.fill = this.defColor;
       });
 
       this.addLines();
@@ -76,5 +94,13 @@ export const Cmсrc = () => {
   const sliderAnimation = new SliderAnimation;
 
   sliderAnimation.init();
+
+  window.addEventListener('load', () => {
+    setTimeout(function () {
+      var scene = document.getElementById('scene');
+      var parallaxInstance = new Parallax(scene);
+    });
+
+  })
 
 };
