@@ -1,0 +1,24 @@
+// Font size
+$defSize: 1.4rem;
+
+// Padding
+$defMargin: 16px;
+
+// Colors
+//--------------------
+$colors: (
+  accent: #ff0033,
+  primary: #e5e5e5
+);
+
+@function color($colorSelect) {
+  @return map_get( $colors, $colorSelect)
+}
+
+// Transition
+//--------------------
+$defTransition: .2s;
+
+// Corner radius
+//--------------------
+$defRadius: 4px;

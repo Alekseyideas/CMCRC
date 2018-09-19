@@ -1,0 +1,84 @@
+.cmcrc {
+  background: radial-gradient(#505050,#282828);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    align-items: flex-start;
+    width: 993px;
+    justify-content: space-between;
+  }
+
+  svg {
+    width: 475px;
+    height: 475px;
+  }
+
+  &__title {
+    position: relative;
+
+    h1 {
+      color: color(accent);
+      font-size: 4rem;
+      margin: 20px 0;
+    }
+
+    .line {
+      position: absolute;
+      background: red;
+      width: 1px;
+      top: 50%;
+      left: 0%;
+    }
+    #line-1{
+      height: 260px;
+      transform: rotate(70deg);
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__rightBlock {
+    width: 100%;
+    max-width: 324px;
+    margin-left: 40px;
+
+  }
+
+  &__slider {
+
+    &-item {
+      margin: 11px 0;
+      font-size: 1.3rem;
+      font-weight: 300;
+      display: flex !important;
+      align-items: flex-start;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 3px;
+        height: 3px;
+        background: color(primary);
+        border-radius: 50%;
+        margin-right: 8px;
+        margin-top: 6px;
+      }
+    }
+  }
+
+  .custom-crc {
+    cursor: pointer;
+    position: relative;
+  }
+}
